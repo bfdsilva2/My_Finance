@@ -1,0 +1,31 @@
+﻿
+@model UserModel
+
+<h3>Register your account</h3>
+<br/>
+<form asp-controller="User" asp-action="Register">
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Name:</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Enter name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" asp-for="Email" placeholder="Enter email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input type="password" class="form-control" asp-for="Password" placeholder="Enter password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="pwd" class="form-label">Birth Date:</label>
+        <input type="Date" class="form-control" asp-for="BirthDate">
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
