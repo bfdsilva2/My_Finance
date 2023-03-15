@@ -1,0 +1,25 @@
+﻿@model AccountModel
+
+@{
+    ViewData["Title"] = "Add Account";
+}
+
+
+    <h2>Add Account</h2>
+    <form asp-asp-controller="Account" asp-action="AddAccount">
+        <div class="mb-3 mt-3">
+            <label>Name:</label>
+            <input type="text" class="form-control" asp-for="Name" placeholder="Enter name account">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Balance:</label>
+            <input type="text" class="form-control" asp-for="Saldo" placeholder="Enter balance account">
+            <span asp-validation-for="Saldo" class="text-danger"></span>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+
+
+

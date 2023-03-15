@@ -1,1 +1,41 @@
-﻿<h3></h3>
+﻿@{
+    ViewData["Title"] = "Accounts";
+}
+<h3>My Accounts</h3>
+
+<table class="table table-bordered">
+    <tread>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Balance</th>
+        </tr>
+    </tread>
+    @{
+        foreach (var item in (List<AccountModel>)ViewBag.Accounts)
+        {
+            <tbody>
+                <tr>
+                    <td><button type="button" class="btn btn-danger" onclick="DeleteAccount(@item.Id.ToString())">Delete</button></td>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Name.ToString()</td>
+                    <td>R$ @item.Saldo.ToString()</td>
+                </tr>
+            </tbody>
+        }
+    }
+</table>
+
+<button type="button" class="btn btn-primary" onclick="AddAccount()">Add Account</button>
+
+<script>
+    function AddAccount()
+    {
+        window.location.href = "../Account/AddAccount"
+    }
+
+    function DeleteAccount(id_account) {
+        window.location.href = "../Account/DeleteAccount/" + id_account;
+    }
+</script>

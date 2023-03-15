@@ -1,35 +1,49 @@
-﻿<div class="row">
-    <div class="col-lg-4 text-center">
-        <img src="~/images/account.png" width="30%"/>
-        <h3>Create Account</h3>
-    </div>
+﻿@{
+    ViewData["Title"] = "Menu";
+}
 
-    <div class="col-lg-4 text-center">
-        <img src="~/images/account_plans.png" width="30%" />
-        <h3>Account Plans</h3>
-    </div>
 
-    <div class="col-lg-4 text-center">
-        <img src="~/images/register_transaction.png" width="30%" />
-        <h3>Register Transaction</h3>
-    </div>
+<div class="row">
+    <a href="../Account/Index">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/account.png" width="30%" />
+            <h3>Create Account</h3>
+        </div>
+    </a>
+    <a href="../AccountPlan/Index">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/account_plans.png" width="30%" />
+            <h3>Account Plans</h3>
+        </div>
+    </a>
+
+    <a href="../Transaction/Index">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/register_transaction.png" width="30%" />
+            <h3>Register Transaction</h3>
+        </div>
+    </a>
 </div>
 <br />
 <br />
 <br />
 <div class="row">
-    <div class="col-lg-4 text-center">
-        <img src="~/images/transaction_list.png" width="30%" />
-        <h3>Transaction List</h3>
-    </div>
-
-    <div class="col-lg-4 text-center">
-        <img src="~/images/dashboard.png" width="30%" />
-        <h3>Dashboard</h3>
-    </div>
-
-    <div class="col-lg-4 text-center">
-        <img src="~/images/help.png" width="30%" />
-        <h3>Ajuda</h3>
-    </div>
+    <a href="../Transaction/TransactionList">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/transaction_list.png" width="30%" />
+            <h3>Transaction List</h3>
+        </div>
+    </a>
+    <a href="../Transaction/Dashboard">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/dashboard.png" width="30%" />
+            <h3>Dashboard</h3>
+        </div>
+    </a>
+    <a href="../Home/Help">
+        <div class="col-lg-4 text-center">
+            <img src="~/images/help.png" width="30%" />
+            <h3>Help</h3>
+        </div>
+    </a>
 </div>
