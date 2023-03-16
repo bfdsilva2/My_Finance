@@ -1,4 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Account Plan";
+    ViewData["Title"] = "Accounts Plan";
 }
-<h3>Account Plan</h3>
+<h3>My Account Plans</h3>
+
+<table class="table table-bordered">
+    <tread>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Type</th>
+        </tr>
+    </tread>
+    @{
+        foreach (var item in (List<AccountPlanModel>)ViewBag.ListAccountPlans)
+        {
+            <tbody>
+                <tr>
+                    <td><button type="button" class="btn btn-primary" onclick="EditAccountPlan(@item.Id.ToString())">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" onclick="DeleteAccountPlan(@item.Id.ToString())">Delete</button></td>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Description.ToString()</td>
+                    <td>@item.Type.ToString().Replace("I","Income").Replace("E","Expanse")</td>
+                </tr>
+            </tbody>
+        }
+    }
+</table>
+
+<button type="button" class="btn btn-success" onclick="AddAccountPlan()">Add Account Plan</button>
+
+<script>
+    function AddAccountPlan() {
+        window.location.href = "../AccountPlan/AddAccountPlan"
+    }
+
+    function DeleteAccountPlan(id_accountplan) {
+        if (confirm("Are you sure to execute this action?")){
+            window.location.href = "../AccountPlan/DeleteAccountPlan/" + id_accountplan;
+        }        
+    }
+
+    function EditAccountPlan(id_accountplan) {
+        window.location.href = "../AccountPlan/AddAccountPlan/" + id_accountplan;
+    }
+</script>

@@ -1,0 +1,61 @@
+﻿@model AccountPlanModel
+
+@{
+    ViewData["Title"] = "Add Account Plan";
+}
+
+@{
+    var vDescription = "";
+    var vType = "";
+    var vId = -1;
+
+    try
+    {
+        vDescription = ViewBag.Register.Description.ToString();
+        vType = ViewBag.Register.Type.ToString();
+        vId = int.Parse(ViewBag.Register.Id.ToString());
+    }
+    catch{ }
+
+}
+
+    <h2>Add Account Plan</h2>
+
+    <form asp-asp-controller="AccountPlan" asp-action="AddAccountPlan">
+        <input type="hidden" asp-for="Id" value="@vId" />
+
+        <div class="mb-3 mt-3">
+            <label>Description:</label>
+        <input type="text" class="form-control" asp-for="Description" value="@vDescription" placeholder="Enter description">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Type:</label>
+            @{
+                if (vType == "E")
+                {
+                    <div class="radio"><label> <input type="radio" asp-for="Type" value="I" unchecked>Income</label></div>
+                    <div class="radio"><label> <input type="radio" asp-for="Type" value="E" checked>Expanse</label></div>
+                }
+                else
+                {
+                    <div class="radio"><label> <input type="radio" asp-for="Type" value="I" checked>Income</label></div>
+                    <div class="radio"><label> <input type="radio" asp-for="Type" value="E" unchecked>Expanse</label></div>
+                }
+            }
+        </div>
+        
+        <button type="submit" class="btn btn-success">Register</button>
+        <button type="button" onclick="Cancel()" class="btn btn-secondary">Cancel</button>
+        
+    </form>
+
+<script>
+    function Cancel() {
+        window.location.href = "../AccountPlan/"
+    }
+</script>
+
+
+
+
